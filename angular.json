@@ -119,6 +119,41 @@
           }
         }
       }
+    },
+    "message-validator": {
+      "projectType": "library",
+      "root": "projects/message-validator",
+      "sourceRoot": "projects/message-validator/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/message-validator/tsconfig.lib.json",
+            "project": "projects/message-validator/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/message-validator/src/test.ts",
+            "tsConfig": "projects/message-validator/tsconfig.spec.json",
+            "karmaConfig": "projects/message-validator/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/message-validator/tsconfig.lib.json",
+              "projects/message-validator/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "message-validator-app-test"
 }
